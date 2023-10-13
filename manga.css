@@ -2,6 +2,14 @@ body {
     background-color: #ffffff;
 }
 
+h5 {
+    font-family: Work Sans, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: black;
+    text-align: center;
+}
+
 .manga-page {
     display: flex;
     flex-direction: column;
@@ -10,11 +18,27 @@ body {
 }
 
 .cover {
-    max-width: 43%;
+    margin-top: 40px;
+    width: 43%;
     height: auto;
 }
 
 .page {
-    max-width: 60%;
+    width: 60%;
     height: auto;
+}
+
+@media only screen and (max-width: 767px) {
+    h5 {
+        font-size: 8px;
+        font-weight: 400;
+    }
+
+    .cover {
+        width: 73%;
+    }
+
+    .page {
+        width: 100%;
+    }
 }

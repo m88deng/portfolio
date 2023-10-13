@@ -143,6 +143,14 @@ p {
   justify-content: center;
 }
 
+div#intro-L {
+  order: 1;
+}
+
+div#intro-R {
+  order: 2;
+}
+
 .intro-right {
   display: flex;
   width: 35%;
@@ -257,12 +265,20 @@ p {
   width: 65%;
 }
 
+div#manga-txt {
+  order: 1;
+}
+
 .manga-cover {
   display: flex;
   width: 35%;
   align-items: center;
   justify-content: flex-end;
   border-radius: 5%;
+}
+
+div#manga-cver {
+  order: 2;
 }
 
 .manga-draft {
@@ -286,6 +302,14 @@ p {
   display: flex;
   flex-direction: column;
   width: 40%;
+}
+
+div#shopID {
+  order: 2;
+}
+
+div#shop-textID {
+  order: 1;
 }
 
 .shop-text {
@@ -1037,5 +1061,70 @@ p {
 
   to {
     transform: translateY(-2500px);
+  }
+}
+
+@media only screen and (max-width: 905px) {
+  p {
+    text-align: justify;
+  }
+
+  .me,
+  .project1,
+  .img-grid,
+  .manga-description,
+  .shop-box,
+  .shop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .intro-left,
+  .intro-right,
+  .project-img,
+  .manga-text,
+  .manga-cover,
+  .shop-text,
+  .shop {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .manga-cover {
+    width: 115%;
+    justify-content: center;
+  }
+
+  div#intro-L,
+  div#manga-txt,
+  div#shop-textID {
+    order: 2;
+  }
+
+  div#intro-R,
+  div#manga-cver,
+  div#shopID {
+    order: 1;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
+  .project-text {
+    margin-top: 20px;
+    padding-left: 0;
+    width: 100%;
+  }
+
+
+}
+
+@media screen and (max-width: 624px) {
+  body {
+    min-width: 624px;
   }
 }
