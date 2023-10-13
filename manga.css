@@ -1,0 +1,20 @@
+body {
+    background-color: #ffffff;
+}
+
+.manga-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover {
+    max-width: 43%;
+    height: auto;
+}
+
+.page {
+    max-width: 60%;
+    height: auto;
+}
