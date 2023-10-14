@@ -24,6 +24,16 @@ h1 {
   letter-spacing: 9px;
 }
 
+.my-name {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.title-mobile {
+  display: none;
+}
+
 h2 {
   margin: 0;
   text-align: center;
@@ -151,13 +161,18 @@ p {
   justify-content: flex-end;
 }
 
+.header-right button {
+  flex: 1;
+  margin-left: 10px;
+
+}
+
 .top {
   background-color: transparent;
   font-weight: bolder;
   border: 0;
   font-family: Work Sans, sans-serif;
   font-size: medium;
-  margin-left: 30px;
   color: #FAF6F5;
   transition: opacity 0.15s;
   cursor: pointer;
@@ -169,8 +184,6 @@ p {
 
 .intro {
   padding-top: 150px;
-  padding-left: 15%;
-  padding-right: 15%;
   height: 450px;
 }
 
@@ -1158,7 +1171,13 @@ div#shop-textID {
     width: 100%;
   }
 
+  .title-web {
+    display: none;
+  }
 
+  .title-mobile {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 624px) {
