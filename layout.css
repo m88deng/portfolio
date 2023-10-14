@@ -1178,6 +1178,10 @@ div#shop-textID {
   .title-mobile {
     display: block;
   }
+
+  .about-me {
+    margin-top: 90px;
+  }
 }
 
 @media screen and (max-width: 624px) {
