@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width-device-width, initial-scale=0.8">
+  <meta name="viewport" content="width-device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -22,6 +22,36 @@
 </head>
 
 <body>
+
+  <div class="cursor"></div>
+  <script type="text/javascript">
+    const cursor = document.querySelector(".cursor");
+    var timeout;
+    //follow cursor on mouse movement
+    document.addEventListener("mousemove", (e) => {
+      let x = e.clientX;
+      let y = e.clientY;
+      cursor.style.top = y + "px";
+      cursor.style.left = x + "px";
+      cursor.style.display = "block";
+
+      //cursor effect on mouse stopped
+      function mouseStopped() {
+        cursor.style.display = "none";
+      }
+
+      clearTimeout(timeout);
+      timeout = setTimeout(mouseStopped, 1000);
+
+    });
+
+    //cursor effect on mouseout
+    document.addEventListener("mouseout", (e) => {
+      cursor.style.display = "none";
+    });
+  </script>
+
+
   <section class="stars-container">
     <div id="stars1"></div>
     <div id="stars2"></div>
