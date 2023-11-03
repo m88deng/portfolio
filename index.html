@@ -23,9 +23,9 @@
 
 <body>
   <section class="stars-container">
-    <div id="stars1"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
+    <div id="stars1" style="opacity: 0.5;"></div>
+    <div id="stars2" style="opacity: 0.7;"></div>
+    <div id="stars3" style="opacity: 0.7;"></div>
   </section>
 
   <section class="header" id="top-header">
@@ -35,8 +35,8 @@
     <div class="header-right">
       <a href="#about-me"><button class="top">About</button></a>
       <a href="#projects"><button class="top">Projects</button></a>
-      <a href="#illustrations"><button class="top">Illustrations</button></a>
-      <a href="#shop"><button class="top">Shop</button></a>
+      <a href="art.html"><button class="top">Illustrations</button></a>
+      <a href="art.html#shop"><button class="top">Shop</button></a>
     </div>
   </section>
 
@@ -64,11 +64,8 @@
         <h2>About Me</h3>
           <div class="me">
             <div class="intro-left" id="intro-L">
-              <p>Hi! My name is Melissa Deng. I am an engineer, a designer, and an artist. </p>
-              <p>
-                I am a team player who works hard and efficiently. I am very curious and always open to learn new skills
-                and technologies to further enrich my capabilities
-              </p>
+              <p>Hi! My name is Melissa Deng. I am software engineering student at the University of Waterloo by day and
+                an artist at night. </p>
               <p>
                 Passionate for imagination and problem-solving, I thrive to deliver smooth web experience
                 to users. My ultimate goal is to bridge the gap between creativity and functionality, turning ideas into
@@ -77,24 +74,48 @@
               <p style="padding-top: 10px;">Art • Drawing • Painting • Video • Design • Music • Reading • Game</p>
             </div>
             <div class="intro-right" id="intro-R">
-              <img class="intro-pic" src="images/melipfp-2.jpeg">
+              <img class="intro-pic" src="images/melipfp.jpeg">
             </div>
           </div>
       </div>
       <div class="experience" id="experience">
         <h2>Experience</h2>
         <div class="job-exp">
-          <div class="job-icon">
-            <a href="https://www.i4i.com/" target="_blank"><img class="i4i-icon" src="images/icon/icon-i4i.png"></a>
+          <div class="job-header">
+            <div class="job-icon">
+              <a href="https://www.i4i.com/" target="_blank"><img class="i4i-icon" src="images/icon/icon-i4i.png"></a>
+            </div>
+            <div class="job-title">
+              <h3>Infrastructures for Information (i4i Inc.)</h3>
+              <h4>Software Quality Analyst</h4>
+              <p>May 2023 - September 2023 • Remote</p>
+            </div>
           </div>
           <div class="job-desc">
-            <h3>Infrastructures for Information (i4i Inc.)</h3>
-            <h4>Software Quality Analyst</h4>
             <p>
-              Over the Summer of 2023, I had the opportunity to thoroughly test i4i's products that were delivered to
+              At i4i, I had the opportunity to thoroughly test their products that were delivered to
               important pharmaceutical companies. Their software revolutionizes the way information and content is
-              organized, thus helping pharmaceutical companies to deliver structure and compliance to their content.
+              organized, thereby playing a pivotal role in aiding pharmaceutical firms to attain structure and
+              compliance within their content management processes.
             </p>
+            <p>
+              During my internship, I delved deeper into the Software Development Life Cycle (SDLC), with a significant
+              focus on testing, one of its crucial phases. As a quality analyst, I identified 10% of the software
+              defects and confirmed 15% of the resolved issues using the bug tracking tool Zoho. My involvement
+              in manual testing provided me with valuable insights into the diverse testing types, including functional,
+              non-functional, regression, and performance testing. This experience enriched my understanding of the SDLC
+              and its pivotal role in delivering high-quality software products.
+            </p>
+            <p>During my internship, I had the opportunity to go beyond testing and take on a hands-on project to
+              enhance the efficiency of another subteam. I worked on an internal tool that simplifies the conversion of
+              Excel data into structured content with unique code numbers, eliminating the need for manual data entry.
+
+              To achieve this, I used XML to create the configuration file, enabling the tool to execute this particular
+              conversion seamlessly. I also worked on enhancing the project's portability by standardizing file paths
+              and file I/O, making it more accessible and adaptable. Additionally, I redesigned the user interface to
+              ensure a user-friendly experience when utilizing the tool for data conversion, employing Python and the
+              Tkinter library to achieve this.</p>
+            <p>Skills: Python • XML • XSL • Software Testing • Documentation • Zoho</p>
           </div>
         </div>
       </div>
@@ -104,7 +125,7 @@
         <div class="project1">
           <div class="project-img">
             <a href="https://www.canva.com/design/DAEFiVyBeo4/SQ1M5sFtTLb5bJUjdjCdRA/view" target="_blank"><img
-                src="images/HoneyBee/1.jpg" style="width: 100%; border-radius: 5%;"></a>
+                src="images/HoneyBee/1.jpg" style="width: 100%; border-radius: 4%;"></a>
           </div>
           <div class="project-text">
             <h3>HoneyBee</h3>
@@ -122,7 +143,7 @@
         <div class="project1">
           <div class="project-img">
             <a href="https://devpost.com/software/medicheck-1fhn4g" target="_blank"><img src="images/medicheck.jpg"
-                style="width: 100%; border-radius: 5%;"></a>
+                style="width: 100%; border-radius: 4%;"></a>
           </div>
           <div class="project-text">
             <h3>MediCheck</h3>
@@ -139,154 +160,7 @@
           </div>
         </div>
       </div>
-      <div class="illustrations" id="illustrations">
-        <h2>Illustrations</h2>
-        <h5 style="margin-top: 100px; margin-bottom: 20px;">Full Colored Illustrations</h5>
-        <div class="img-grid">
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/roy-wang-sq.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/light-study-sq.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/dreamy-skateboard-sq.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/albedo-sq.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/klee-sq.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/zhongli-sq.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/story-sq.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/may-watercolor-sq.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/flower-sq.jpg">
-          </div>
-        </div>
-        <h5 style="margin-top: 120px; margin-bottom: 20px;">Ink Illustrations</h5>
-        <div class="img-grid">
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/inktober3-sq.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/inktober6-sq.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/inktober9-sq.jpg">
-          </div>
-        </div>
-        <h5 style="margin-top: 120px; margin-bottom: 20px;">Landscape Illustrations</h5>
-        <div class="img-grid">
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/forest-mansion.jpeg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/roman-church.jpeg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/european-street-view.jpeg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/lighthouse.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/countryside.jpg">
-          </div>
-          <div class="img-holder">
-            <img class="artwork" src="images/meililiart-art/fall-forest.jpg">
-          </div>
-        </div>
-        <div class="manga">
-          <h2 style="padding-top: 50px;">Manga</h2>
-          <h3 style="padding-top: 30px;">From My Heart - A Journey of Self-Discovery</h3>
-          <div class="manga-description">
-            <div class="manga-text" id="manga-txt">
-              <p>"From My Heart" is a captivating one-shot manga created in 2021,
-                following the journey of sixteen-year-old May as she embarks on a transformative path of
-                self-discovery.
-                Spanning 52 pages, the comic beautifully intertwines expressive art with compelling storytelling,
-                making May's challenges and triumphs relatable to readers of all ages.
-              </p>
-              <p>
-                This manga stands as a testament to my growth, merging my art and storytelling skills to craft a
-                heartfelt and inspiring work.
-                The unwavering support of my family and friends throughout the creative process played a vital role in
-                completing this ambitious project.
-              </p>
-              <p>
-                "From My Heart" emphasizes the significance of self-discovery and its lasting benefits, encouraging
-                readers to embrace their own journeys of self-exploration.
-                The manga's profound themes and unique visuals leave a lasting impression, serving as a reminder of
-                the transformative power of creativity and
-                the importance of pursuing one's dreams.
-              </p>
-              <p>
-                With its portrayal of personal growth and artistic achievement, "From My Heart" stands as a touching
-                expression of passion, emotions, and the joy of creating meaningful art.
-              </p>
-              <div class="read-me">
-                <a href="manga.html" target="blank"><button class="read-me-button" id="from-my-heart">Read
-                    It Now</button></a>
-              </div>
-            </div>
-            <div class="manga-cover" id="manga-cver">
-              <img src="images/meililiart-art/from-my-heart-cover.png" style="border-radius: 5%; max-width: 85%;">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="merch-shop" id="shop">
-        <h2>Merch Shop</h2>
-        <div class="shop-box">
-          <div class="shop-text" id="shop-textID">
-            <div>
-              <p>
-                Expanding my artworks to a new horizon, I opened my own merch shop in 2021, fusioning art and fashion.
-                This online shop features over fifteen selected unique drawings created with passion.
-              </p>
-              <p>
-                Embrace wearable masterpieces that tell stories, spark imagination, and showcase their unique style
-                and creative expression.
-              </p>
-              <div class="connect-icon">
-                <a href="https://meiliiart.creator-spring.com/?" target="_blank">
-                  <img class="teespring" src="images/teespring-white-logo.png">
-                </a>
-                <a href="https://www.instagram.com/meiliiart/" target="_blank">
-                  <img class="insta" src="images/instagram.png">
-                </a>
-                <a href="https://www.deviantart.com/meiliiart/gallery" target="_blank">
-                  <img class="devianart" src="images/devianart-white-logo.png">
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="shop" id="shopID">
-            <div class="shop-picture">
-              <div class="shop-pic-container">
-                <img class="shop-pic" src="images/meililiart-art/02 Hoodie.png">
-              </div>
-              <div class="shop-pic-container">
-                <img class="shop-pic" src="images/meililiart-art/03 Sweatshirt.png">
-              </div>
-              <div class="shop-pic-container">
-                <img class="shop-pic" src="images/meililiart-art/04 T-shirt.png">
-              </div>
-              <div class="shop-pic-container">
-                <img class="shop-pic" src="images/meililiart-art/05 Shirt.png">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </section>
     <section class="footnote">
       <p style="text-align: center;">mdeng@uwaterloo.ca</p>
@@ -295,7 +169,7 @@
   </div>
 
   <div class="background">
-    <img class="mountain" src="images/icon/mountain.png">
+    <img class="mountain" src="images/mountain.png" style="opacity: 0.95;">
   </div>
 </body>
 
