@@ -80,8 +80,8 @@ p {
 }
 
 .main {
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 .main-art {
@@ -250,16 +250,15 @@ div#intro-R {
 }
 
 .project-img {
-  width: 50%;
+  width: 60%;
 }
 
 .project-text {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
-  padding-left: 60px;
-  padding-right: 5px;
-  width: 50%;
+  padding-left: 30px;
+  width: 40%;
   justify-content: center;
 }
 
