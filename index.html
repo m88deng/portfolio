@@ -22,36 +22,6 @@
 </head>
 
 <body>
-
-  <div class="cursor"></div>
-  <script type="text/javascript">
-    const cursor = document.querySelector(".cursor");
-    var timeout;
-    //follow cursor on mouse movement
-    document.addEventListener("mousemove", (e) => {
-      let x = e.clientX;
-      let y = e.clientY;
-      cursor.style.top = y + "px";
-      cursor.style.left = x + "px";
-      cursor.style.display = "block";
-
-      //cursor effect on mouse stopped
-      function mouseStopped() {
-        cursor.style.display = "none";
-      }
-
-      clearTimeout(timeout);
-      timeout = setTimeout(mouseStopped, 1000);
-
-    });
-
-    //cursor effect on mouseout
-    document.addEventListener("mouseout", (e) => {
-      cursor.style.display = "none";
-    });
-  </script>
-
-
   <section class="stars-container">
     <div id="stars1"></div>
     <div id="stars2"></div>
@@ -94,16 +64,15 @@
         <h2>About Me</h3>
           <div class="me">
             <div class="intro-left" id="intro-L">
-              <p>Hello! My name is Melissa Deng. I am a software engineering student at the University of Waterloo based
-                in Waterloo, Ontario.
-                During my free time, I am also a freelance traditional artist who enjoys exploring the beauty of colors
-                and shapes.
+              <p>Hi! My name is Melissa Deng. I am an engineer, a designer, and an artist. </p>
+              <p>
+                I am a team player who works hard and efficiently. I am very curious and always open to learn new skills
+                and technologies to further enrich my capabilities
               </p>
               <p>
-                Passionate for imagination and problem-solving, I love to design user-friendly interfaces that captivate
-                users. My ultimate goal is to bridge the gap between creativity and functionality, turning ideas into
-                realities
-                through my coding skills.
+                Passionate for imagination and problem-solving, I thrive to deliver smooth web experience
+                to users. My ultimate goal is to bridge the gap between creativity and functionality, turning ideas into
+                realities through my coding skills.
               </p>
               <p style="padding-top: 10px;">Art • Drawing • Painting • Video • Design • Music • Reading • Game</p>
             </div>
@@ -112,6 +81,24 @@
             </div>
           </div>
       </div>
+      <div class="experience" id="experience">
+        <h2>Experience</h2>
+        <div class="job-exp">
+          <div class="job-icon">
+            <a href="https://www.i4i.com/" target="_blank"><img class="i4i-icon" src="images/icon/icon-i4i.png"></a>
+          </div>
+          <div class="job-desc">
+            <h3>Infrastructures for Information (i4i Inc.)</h3>
+            <h4>Software Quality Analyst</h4>
+            <p>
+              Over the Summer of 2023, I had the opportunity to thoroughly test i4i's products that were delivered to
+              important pharmaceutical companies. Their software revolutionizes the way information and content is
+              organized, thus helping pharmaceutical companies to deliver structure and compliance to their content.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div class="projects" id="projects">
         <h2>Projects</h2>
         <div class="project1">
