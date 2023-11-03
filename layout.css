@@ -1193,6 +1193,14 @@ div#shop-textID {
   .about-me {
     margin-top: 90px;
   }
+
+  .footnote {
+    padding-top: 150px;
+  }
+
+  .job-icon {
+    width: 25%;
+  }
 }
 
 @media screen and (max-width: 624px) {
