@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Bemirs;
+  src: url("bemirs-font/BemirsDemoVersionRegular-X361d.otf");
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -17,8 +22,8 @@ body {
 
 h1 {
   margin: 0;
-  font-family: Rozha One, sans-serif;
-  font-size: 90px;
+  font-family: Bemirs, sans-serif;
+  font-size: 100px;
   color: #FAF6F5;
   letter-spacing: 9px;
 }
