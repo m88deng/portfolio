@@ -1,4 +1,5 @@
 body {
+    margin-top: 70px;
     background-color: #ffffff;
 }
 
@@ -9,6 +10,69 @@ p {
     font-weight: 200;
     color: black;
 }
+
+.header {
+    position: fixed;
+    /* background-color: rgba(51, 121, 220, 0.4); */
+    /* background-color: rgba(19, 10, 70, 0.5); */
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    transition: top 0.3s ease-in-out;
+}
+
+#top-header.hide {
+    top: -80px;
+}
+
+.header-left {
+    width: 5%;
+}
+
+.logo {
+    width: 60px;
+}
+
+.logo:hover {
+    opacity: 65%;
+}
+
+.header-right {
+    display: flex;
+    width: 75%;
+    justify-content: flex-end;
+}
+
+.header-right button {
+    flex: 1;
+    margin-left: 10px;
+
+}
+
+.top {
+    background-color: transparent;
+    font-weight: bolder;
+    border: 0;
+    font-family: Work Sans, sans-serif;
+    font-size: medium;
+    color: rgb(19, 10, 70);
+    /* color: #FAF6F5; */
+    transition: opacity 0.15s;
+    cursor: pointer;
+}
+
+.top:hover {
+    color: rgb(214, 192, 255);
+}
+
 
 .footnote {
     padding-bottom: 70px;
