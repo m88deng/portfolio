@@ -15,6 +15,7 @@ body {
   padding: 0 px;
   margin: 0;
   height: 100%;
+  /* background-image: url("images/blue-sky-quality.jpeg"); */
   background-image: linear-gradient(to bottom, #130a46 0%, #08040f 70%, #291b76 100%);
   background-size: cover;
   overflow-x: hidden;
@@ -30,8 +31,8 @@ h1 {
 
 .my-name {
   text-align: center;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .title-mobile {
@@ -44,6 +45,7 @@ h2 {
   font-family: Merriweather, sans-serif;
   font-size: 40px;
   font-weight: 600;
+  /*color: rgb(39, 35, 81);*/
   color: #FAF6F5;
   letter-spacing: 3px;
 }
@@ -53,6 +55,7 @@ h3 {
   font-family: Work Sans, sans-serif;
   font-size: 24px;
   font-weight: 400;
+  /*color: rgb(39, 35, 81);*/
   color: #FAF6F5;
   letter-spacing: 2px;
 }
@@ -63,6 +66,7 @@ h4 {
   font-size: 16px;
   font-weight: 400;
   color: #FAF6F5;
+  /*color: rgb(39, 35, 81);*/
 }
 
 h5 {
@@ -70,6 +74,7 @@ h5 {
   font-family: Work Sans, sans-serif;
   font-size: 24px;
   font-weight: 400;
+  /*color: rgb(39, 35, 81);*/
   color: #FAF6F5;
   letter-spacing: 2px;
   text-align: center;
@@ -81,17 +86,8 @@ p {
   font-size: 14px;
   letter-spacing: 0.2px;
   font-weight: 200;
+  /*color: rgb(39, 35, 81);*/
   color: #FAF6F5;
-}
-
-.main {
-  padding-left: 15%;
-  padding-right: 15%;
-}
-
-.main-art {
-  padding-left: 10%;
-  padding-right: 10%;
 }
 
 .content-art {
@@ -100,6 +96,7 @@ p {
 
 .header {
   position: fixed;
+  /* background-color: rgba(51, 121, 220, 0.4); */
   background-color: rgba(19, 10, 70, 0.5);
   padding-left: 15px;
   padding-right: 15px;
@@ -159,8 +156,11 @@ p {
 }
 
 .intro {
-  padding-top: 150px;
+  padding-top: 190px;
+  padding-left: 15%;
+  padding-right: 15%;
   height: 450px;
+  margin-bottom: 100px;
 }
 
 .intro-left {
@@ -189,12 +189,15 @@ div#intro-R {
 .intro-pic {
   max-width: 70%;
   border-radius: 50%;
-  border: 5px inset #bbb4d2;
+  border: 5px inset #72b1ff;
 }
 
 .about-me {
-  padding-top: 90px;
+  padding-top: 120px;
   padding-bottom: 120px;
+  padding-left: 15%;
+  padding-right: 15%;
+  /* background: linear-gradient(to bottom, rgb(53, 143, 222, 0) 0%, rgb(51, 142, 222, 0.6) 25%, rgb(51, 142, 222, 0.6) 80%, rgb(51, 142, 222, 0) 100%); */
 }
 
 .me {
@@ -203,8 +206,13 @@ div#intro-R {
 }
 
 .experience {
-  padding-top: 90px;
-  padding-bottom: 100px;
+  padding-top: 120px;
+  padding-bottom: 50px;
+  margin-bottom: 100px;
+  padding-left: 15%;
+  padding-right: 15%;
+  /* background: linear-gradient(to bottom, rgb(53, 143, 222, 0) 0%, rgb(51, 142, 222, 0.6) 25%, rgb(51, 142, 222, 0.6) 80%, rgb(51, 142, 222, 0) 100%); */
+
 }
 
 .job-exp {
@@ -243,8 +251,11 @@ div#intro-R {
 }
 
 .projects {
-  padding-top: 90px;
-  padding-bottom: 100px;
+  padding-top: 120px;
+  padding-bottom: 150px;
+  padding-left: 15%;
+  padding-right: 15%;
+  /* background: linear-gradient(to bottom, rgb(53, 143, 222, 0) 0%, rgb(51, 142, 222, 0.6) 20%, rgb(51, 142, 222, 0.6) 75%, rgb(51, 142, 222, 0) 100%); */
 }
 
 .project1 {
@@ -275,8 +286,10 @@ div#intro-R {
 }
 
 .illustrations {
-  padding-top: 90px;
-  padding-bottom: 120px;
+  padding-top: 120px;
+  padding-bottom: 150px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .img-grid {
@@ -298,7 +311,12 @@ div#intro-R {
 }
 
 .manga {
-  padding-top: 150px;
+  padding-top: 120px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 50px;
+  margin-bottom: 100px;
+  /* background: linear-gradient(to bottom, rgb(53, 143, 222, 0) 0%, rgb(51, 142, 222, 0.6) 25%, rgb(51, 142, 222, 0.6) 70%, rgb(51, 142, 222, 0) 100%); */
 }
 
 .manga-description {
@@ -356,7 +374,11 @@ div#manga-cver {
 }
 
 .merch-shop {
-  padding-top: 90px;
+  padding-top: 80px;
+  margin-top: 40px;
+  padding-left: 10%;
+  padding-right: 10%;
+  /* background: linear-gradient(to bottom, rgb(53, 143, 222, 0) 0%, rgb(51, 142, 222, 0.5) 30%, rgb(51, 142, 222, 0.5) 60%, rgb(51, 142, 222, 0) 100%); */
 }
 
 .shop-box {
@@ -447,7 +469,7 @@ div#shop-textID {
 }
 
 .footnote {
-  padding-top: 500px;
+  padding-top: 300px;
   padding-bottom: 40px;
 }
 
