@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const StyledExperienceSection = styled.div`
     width: 100vw;
-    height: 150vh;
+    height: 100vh;
     /* background-color: #e9edf2; */
     background-image: -webkit-linear-gradient(top, #e9edf2 0%, #dbe4f0 100%);
     padding: 6% 15% 8%;
@@ -37,7 +37,7 @@ export const StyledExperienceTimeline = styled.div`
         height: 10px;
         background: white;
         border-radius: 999px;
-        left: -7px;
+        left: -6.2px;
         top: 30px;
         border: 3px solid var(--background-dark);
     }

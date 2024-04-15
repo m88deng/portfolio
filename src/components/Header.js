@@ -4,7 +4,7 @@ import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 
 export default function Header() {
     return (
-        <StyledHeader className="header d-flex justify-content-between align-items-center pt-4 pb-3 px-5 ">
+        <StyledHeader className="header d-flex justify-content-between align-items-center pt-4 pb-3 px-5" style={{ zIndex: "4" }}>
             <div>
                 <h4 id="logo">Melissa</h4>
             </div>

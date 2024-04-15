@@ -1,13 +1,14 @@
 import { StyledProjectSection } from "../styles/Projects.styled";
+import ProjectCard from "./ProjectCard";
+import Emolock from "./../assets/projects/emolock_cover.png"
 
 export default function ProjectSection() {
     return (
         <StyledProjectSection>
             <h1>Personal Projects</h1>
-            <div className="card">
-                <h2 className="card-title">Hackathon Event Application</h2>
-                <div className="card-body"></div>
-            </div>
-        </StyledProjectSection>
+            <ProjectCard name={"Emolock Event Application"} imgCover={Emolock}></ProjectCard>
+            <ProjectCard name={"Hack The North Challenge"} imgCover={Emolock}></ProjectCard>
+
+        </StyledProjectSection >
     )
 }

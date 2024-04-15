@@ -19,4 +19,17 @@ export const StyledHero = styled.div`
   margin: 0;
   padding: 0;
   
+  .bgLightCloud{
+    width: 80%;
+    opacity: 0.8;
+    position: absolute;
+    z-index: 1;
+    animation: clouds 15s infinite;
+  }
+
+  @keyframes clouds {
+    0%{ scale: 1; transform: translateY(0px)} 
+    50%{scale: 1.05; transform: translateY(40px)}
+    100%{scale: 1; transform: translateY(0px)}
+  }
 `;
