@@ -24,7 +24,13 @@ export const StyledHero = styled.div`
     opacity: 0.8;
     position: absolute;
     z-index: 1;
-    animation: clouds 15s infinite;
+    animation: clouds 8s infinite;
+    
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
   }
 
   @keyframes clouds {

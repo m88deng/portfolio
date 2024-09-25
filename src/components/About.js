@@ -4,17 +4,20 @@ import PaletteIcon from '@mui/icons-material/Palette';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
+import { useTranslation } from "react-i18next";
 
 export default function About() {
+    const [t, i18n] = useTranslation("global")
+
     return (
         <StyledAboutSection>
-            <h1>About</h1>
+            <h1>{t("navbar.about")}</h1>
             <div className="d-flex justify-content-between pb-2">
                 <div className="col-6 d-flex flex-column justify-content-center pr-5 pl-0">
-                    <p>My name is Melissa Deng. I am software engineering student at the University of Waterloo by day and an artist at night.
+                    <p>{t("about.description1")}
                     </p>
                     <br />
-                    <p className="pb-2">Passionate for imagination and problem-solving, I thrive to deliver smooth web experience to users. My ultimate goal is to bridge the gap between creativity and functionality, turning ideas into realities through my coding skills.</p>
+                    <p className="pb-2">{t("about.description2")}</p>
                 </div>
                 <div className="col-6 d-flex align-items-center ml-2" style={{ position: "relative" }}>
                     <div id="profilepic"></div>
@@ -22,13 +25,13 @@ export default function About() {
                     <StyledHobby id="hobbyMusic"><MusicNoteIcon sx={{ fontSize: "35px" }} style={{ color: "FFFFFF" }} /></StyledHobby>
                     <StyledHobby id="hobbyGame"><SportsEsportsIcon sx={{ fontSize: "35px" }} style={{ color: "FFFFFF" }} /></StyledHobby>
                     <StyledHobby id="hobbyPhoto"><PhotoCameraIcon sx={{ fontSize: "35px" }} style={{ color: "FFFFFF" }} /></StyledHobby>
-                    <small id="hobbyArtText" className="hobbyText">Arts & Craft</small>
-                    <small id="hobbyMusicText" className="hobbyText">Music</small>
-                    <small id="hobbyGameText" className="hobbyText">Gaming</small>
-                    <small id="hobbyPhotoText" className="hobbyText">Photography</small>
+                    <small id="hobbyArtText" className="hobbyText">{t("about.art")}</small>
+                    <small id="hobbyMusicText" className="hobbyText">{t("about.music")}</small>
+                    <small id="hobbyGameText" className="hobbyText">{t("about.gaming")}</small>
+                    <small id="hobbyPhotoText" className="hobbyText">{t("about.photography")}</small>
                 </div>
             </div>
-            <h2>Languages</h2>
+            <h2>{t("about.languages")}</h2>
             <StyledTechSection>
                 <StyledTechnology>Python</StyledTechnology>
                 <StyledTechnology>C</StyledTechnology>
@@ -39,7 +42,7 @@ export default function About() {
                 <StyledTechnology>HTML</StyledTechnology>
                 <StyledTechnology>CSS</StyledTechnology>
             </StyledTechSection>
-            <h2>Technologies</h2>
+            <h2>{t("about.technologies")}</h2>
             <StyledTechSection >
                 <StyledTechnology>React</StyledTechnology>
                 <StyledTechnology>GraphQL</StyledTechnology>
@@ -49,7 +52,7 @@ export default function About() {
                 <StyledTechnology>Vite</StyledTechnology>
                 <StyledTechnology>OpenCV</StyledTechnology>
             </StyledTechSection>
-            <h2>Design</h2>
+            <h2>{t("about.design")}</h2>
             <StyledTechSection>
                 <StyledTechnology>Figma</StyledTechnology>
                 <StyledTechnology>Photoshop</StyledTechnology>

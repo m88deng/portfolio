@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const StyledExperienceSection = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     /* background-color: #e9edf2; */
     background-image: -webkit-linear-gradient(top, #e9edf2 0%, #dbe4f0 100%);
     padding: 6% 15% 8%;

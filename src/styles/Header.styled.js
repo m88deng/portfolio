@@ -4,7 +4,7 @@ export const StyledHeader = styled.div`
   width: 100vw !important;
   padding: 0;
   margin: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
 
   #logo {
@@ -13,10 +13,14 @@ export const StyledHeader = styled.div`
     cursor: pointer;
   }
   .tabs{
-    width: 45%;
+    width: 30%;
   }
   .settings{
-    width: 10%;
+    width: 15%;
+  }
+  #placeholder{
+    user-select: none;
+    -webkit-user-select: none;
   }
   #darkModeIcon{
     cursor: pointer;
@@ -24,7 +28,6 @@ export const StyledHeader = styled.div`
 
   #lightModeIcon{
     cursor: pointer;
-    display: none;
   }
 `;
 
