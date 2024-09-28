@@ -1,0 +1,271 @@
+@font-face {
+    font-family: Bemirs;
+    src: url("bemirs-font/BemirsDemoVersionRegular-X361d.otf");
+}
+html {
+  scroll-behavior: smooth;
+}
+#manga-body {
+  background-color: white;
+}
+body {
+  padding: 0 px;
+  margin: 0;
+  height: 100%;
+  /* background-image: url("images/bluesky.png"); */
+  background-image: linear-gradient(to bottom, #130a46 0%, #08040f 70%, #291b76 100%);
+  background-size: cover;
+  overflow-x: hidden;
+}
+h1 {
+  margin: 0;
+  font-family: Bemirs, sans-serif;
+  font-size: 100px;
+  color: #FAF6F5;
+  letter-spacing: 9px;
+}
+.my-name {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.title-mobile {
+  display: none;
+}
+h2 {
+  margin: 0;
+  text-align: center;
+  font-family: Merriweather, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  /*color: rgb(39, 35, 81);*/
+  color: #FAF6F5;
+  letter-spacing: 3px;
+}
+h3 {
+  margin: 0;
+  font-family: Work Sans, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  /*color: rgb(39, 35, 81);*/
+  color: #FAF6F5;
+  letter-spacing: 2px;
+}
+h4 {
+  margin: 0;
+  font-family: Work Sans, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FAF6F5;
+  /*color: rgb(39, 35, 81);*/
+}
+h5 {
+  margin: 0;
+  padding-top: 85px;
+  font-family: Work Sans, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  /*color: rgb(39, 35, 81);*/
+  color: #FAF6F5;
+  letter-spacing: 2px;
+  text-align: center;
+}
+p {
+  margin-top: 15px;
+  font-family: Work Sans, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  font-weight: 200;
+  /*color: rgb(39, 35, 81);*/
+  color: #FAF6F5;
+}
+label{
+  font-family: Work Sans, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  font-weight: 200;
+  color: #FAF6F5;
+}
+.content-art {
+  padding-top: 90px;
+}
+.header {
+  position: fixed;
+  /* background-color: rgba(51, 121, 220, 0.4); */
+  background-color: rgba(19, 10, 70, 0.5);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  transition: top 0.3s ease-in-out;
+}
+#top-header.hide {
+  top: -80px;
+}
+.header-left {
+  width: 5%;
+}
+.logo {
+  width: 60px;
+}
+.logo:hover {
+  opacity: 65%;
+}
+.header-right {
+  display: flex;
+  width: 75%;
+  justify-content: flex-end;
+}
+.header-right button {
+  flex: 1;
+  margin-left: 10px;
+}
+.top {
+  background-color: transparent;
+  font-weight: bolder;
+  border: 0;
+  font-family: Work Sans, sans-serif;
+  font-size: medium;
+  color: #FAF6F5;
+  transition: opacity 0.15s;
+  cursor: pointer;
+}
+.top:hover {
+  color: rgb(214, 192, 255);
+}
+.intro {
+  padding-top: 190px;
+  padding-left: 15%;
+  padding-right: 15%;
+  height: 450px;
+  margin-bottom: 100px;
+}
+.illustrations {
+  padding-top: 120px;
+  padding-bottom: 150px;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+.footnote {
+  padding-top: 300px;
+  padding-bottom: 40px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+  
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media only screen and (max-width: 905px) {
+p {
+        text-align: justify;
+}
+  
+.me,
+.project1,
+.img-grid,
+.manga-description,
+.shop-box,
+.shop {
+display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .intro-left,
+  .intro-right,
+  .project-img,
+  .manga-text,
+  .manga-cover,
+  .shop-text,
+  .shop {
+    width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  }
+  .manga-cover {
+    width: 115%;
+    justify-content: center;
+  }
+  div#intro-L,
+  div#manga-txt,
+  div#shop-textID {
+    order: 2;
+  }
+  div#intro-R,
+  div#manga-cver,
+  div#shopID {
+    order: 1;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+  .project-text {
+    margin-top: 20px;
+    padding-left: 0;
+    width: 100%;
+  }
+  .title-web {
+    display: none;
+  }
+  .title-mobile {
+    display: block;
+  }
+  .about-me {
+    margin-top: 90px;
+  }
+  .footnote {
+    padding-top: 150px;
+ }
+
+  .job-icon {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 624px) {
+  body {
+    min-width: 624px;
+  }
+}
