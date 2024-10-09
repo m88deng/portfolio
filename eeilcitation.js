@@ -122,6 +122,12 @@ function websiteGenerate() {
   const sourcesDiv = document.getElementById("web-sources");
   const alert = document.getElementById("web-alert");
 
+  if (!title || !url || !refdate) {
+    alert.classList.remove("invisible");
+    sourcesDiv.classList.add("invisible");
+    return;
+  }
+
   var authors = authorsFormatter(lname, fname, lname2, fname2, authors3, alert);
   var dates = dateFormatter(refdate, alert);
 
@@ -136,11 +142,6 @@ function websiteGenerate() {
   var dateFr = dates[0];
   var dateEn = dates[1];
 
-  if (!title || !url || !refdate) {
-    alert.classList.remove("invisible");
-    sourcesDiv.classList.add("invisible");
-    return;
-  }
   alert.classList.add("invisible");
   sourcesDiv.classList.remove("invisible");
 
