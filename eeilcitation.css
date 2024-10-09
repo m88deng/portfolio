@@ -13,7 +13,8 @@ body {
   margin: 0;
   height: 100%;
   /* background-image: url("images/bluesky.png"); */
-  background-image: linear-gradient(to bottom, #130a46 0%, #08040f 70%, #291b76 100%);
+  background-color: #1d1c1e;
+  /* background-image: linear-gradient(to bottom, #130a46 0%, #08040f 70%, #291b76 100%); */
   background-size: cover;
   overflow-x: hidden;
 }
@@ -52,10 +53,10 @@ h3 {
   letter-spacing: 2px;
 }
 h4 {
-  margin: 0;
+  margin: 15px 0px;
   font-family: Work Sans, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 200;
   color: #FAF6F5;
   /*color: rgb(39, 35, 81);*/
 }
@@ -71,28 +72,54 @@ h5 {
   text-align: center;
 }
 p {
-  margin-top: 15px;
+  margin-top: 5px;
+  margin-bottom: 2px;
   font-family: Work Sans, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.2px;
   font-weight: 200;
   /*color: rgb(39, 35, 81);*/
   color: #FAF6F5;
 }
 label{
+  padding-top: 5px;
   font-family: Work Sans, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.2px;
   font-weight: 200;
   color: #FAF6F5;
 }
+input{
+  padding: 10px;
+  font-size: 14px;
+  font-family: Work Sans, sans-serif;
+  border-radius: 5px;
+  border-style: none;
+}
+
+.generate-button{
+  margin-top: 2%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #020202;  
+  color: #FAF6F5;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.generate-button:hover{
+  /* background-color: #5c5cec; */
+  background-color: #9484ff;
+}
+
 .content-art {
   padding-top: 90px;
 }
 .header {
   position: fixed;
   /* background-color: rgba(51, 121, 220, 0.4); */
-  background-color: rgba(19, 10, 70, 0.5);
+  background-color: rgba(29, 28, 30, 0.7);
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 15px;
@@ -158,24 +185,54 @@ label{
   padding-bottom: 40px;
 }
 
+.src-bg{
+  background-color: rgba(250, 246, 245, 0.073);
+  padding: 40px 40px 50px;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+
+.src-bg:hover{
+  background-color: rgba(250, 246, 245, 0.11);
+}
+
+.copy-button{
+  background: #FAF6F5;
+  color: #08040f;
+  font-size: 14px;
+  transition: 0.3s;
+  padding: 10px;
+
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.copy-button:hover{
+  background-color: #d6c0ff;
+}
+
 .tooltip {
     position: relative;
     display: inline-block;
 }
 
 .tooltip .tooltiptext {
+    content: "";
     visibility: hidden;
-    width: 140px;
+    width: 80px;
     background-color: #555;
     color: #fff;
     text-align: center;
-    border-radius: 6px;
-    padding: 5px;
+    border-radius: 5px;
+    padding: 7px;
     position: absolute;
     z-index: 1;
     bottom: 150%;
     left: 50%;
-    margin-left: -75px;
+    margin-left: -50%;
     opacity: 0;
     transition: opacity 0.3s;
 }
@@ -195,6 +252,21 @@ label{
     visibility: visible;
     opacity: 1;
 }
+
+.invisible{
+  display: none;
+}
+
+.alert-box{
+  background-color: rgb(235, 123, 123);
+  color: #481c1c;
+  font-family: sans-serif;
+  font-size: 14px;
+  padding: 20px;
+  margin-top: 25px;
+  border-radius: 5px;
+}
+
 
 @media only screen and (max-width: 905px) {
 p {
@@ -269,3 +341,4 @@ display: flex;
     min-width: 624px;
   }
 }
+

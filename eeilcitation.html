@@ -41,160 +41,239 @@
         <div class="illustrations" id="illustrations">
             <h2>EEIL-Style Citations</h2>
             <h5 style="margin-top: 120px; margin-bottom: 20px;" id="website">Site Internet</h5>
-            <div style="background-color: rgba(225, 213, 255, 0.7); padding: 20px 30px 40px;">
+            <div class="src-bg">
                 <form id="web-info">
                     <p>Titre du site</p>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
-                        <input type="text" id="web-title" value="title"/>
+                        <input type="text" name="web-title" value="" />
                     </div>
                     <p>URL Site Internet</p>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
-                        <input type="text" id="web-url" value="text"/>
+                        <input type="text" name="web-url" value="" />
                     </div>
                     <p>Information sur l'auteur</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
                         <label>Prénom</label><label>Nom de famille</label>
-                        <input type="text" id="web-fname" value="text"/>
-                        <input type="text" id="web-lname" value="text"/>
+                        <input type="text" name="web-fname" value="" />
+                        <input type="text" name="web-lname" value="" />
+                        <label>Prénom</label><label>Nom de famille</label>
+                        <input type="text" name="web-fname2" value="" />
+                        <input type="text" name="web-lname2" value="" />
+                        <div style="padding-top: 10px;">
+                            <input type="checkbox" name="web-3authors" /><label>Trois auteurs ou plus</label>
+                        </div>
                     </div>
                     <p>Nom de l'organisme</p>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
-                        <input type="text" id="web-oname" value=""/>
+                        <input type="text" name="web-oname" value="" />
                     </div>
                     <p>Date de consultation</p>
-                    <input type="date" id="web-refdate" value=""/>
+                    <input type="date" id="web-date" name="web-refdate" value="" />
                     <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
-                        <input type="submit" id="web-submit" value="Générer ma source">
+                        <button type="button" class="generate-button" onclick="websiteGenerate()">Générer ma
+                            source</button>
                     </div>
-                    <p id="website-source-fr">Example: REMMIGGI, Frank. Université Laval, (réf. du 21 janvier 2019). <i>La répartition du bouleau jaune en Mauricie Bois-Francs [en ligne]</i>, addresse URL: http://bit.ly/IU4X2</p>
-                    <p>web-lname, web-fname. web-oname, (réf. du 21 janvier 2019). <i>web-title [en ligne]</i>, addresse URL: web-url</p>
+                    <div id="web-alert" class="alert-box invisible">
+                        <span class="alert-text">Please provide all necessary information</span>
+                    </div>
+                    <div id="web-sources" class="invisible">
+                        <h4 id="web-source-fr"></h4>
+                        <h4 id="web-source-en"></h4>
+                        <button type="button" id="web-copy-fr"
+                            onclick="copyText(document.getElementById('web-source-fr').innerHTML, 'web-tooltip-fr')"
+                            onmouseout="outFunc('web-tooltip-fr')" class="tooltip copy-button">
+                            <span class="tooltiptext" id="web-tooltip-fr">Copy</span>
+                            Copier en FR
+                        </button>
+                        <button type="button" id="web-copy-en"
+                            onclick="copyText(document.getElementById('web-source-en').innerHTML, 'web-tooltip-en')"
+                            onmouseout="outFunc('web-tooltip-en')" class="tooltip copy-button">
+                            <span class="tooltiptext" id="web-tooltip-en">Copy</span>
+                            Copy in EN
+                        </button>
+                    </div>
                 </form>
             </div>
             <h5 style="margin-top: 100px; margin-bottom: 20px;" id="monography">Monographie</h5>
-            <div style="background-color: rgba(225, 213, 255, 0.7); padding: 20px 30px 40px;">
+            <div class="src-bg">
                 <form id="monography-info">
-                    <p>Titre du site</p>
+                    <p>Titre de la monographie</p>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
-                        <input type="text" id="mono-title" value="title"/>
+                        <input type="text" id="mono-title" value="Brunet" />
                     </div>
-                    <p>URL du site internet</p>
+                    <p>URL du la monographie si trouvé en ligne</p>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
-                        <input type="text" id="mono-url" value="text"/>
+                        <input type="text" id="mono-url" value="text" />
                     </div>
-                    <p>Information sur l'auteur</p>
+                    <p>Information sur les auteurs</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
+                        <label>Prénom du</label><label>Nom de famille</label>
+                        <input type="text" id="mono-fname" value="Brunet" />
+                        <input type="text" id="mono-lname" value="Pablo" />
                         <label>Prénom</label><label>Nom de famille</label>
-                        <input type="text" id="mono-fname" value="text"/>
-                        <input type="text" id="mono-lname" value="text"/>
+                        <input type="text" id="mono-fname" value="Brunet" />
+                        <input type="text" id="mono-lname" value="Pablo" />
+                        <div style="padding-top: 10px;">
+                            <input type="checkbox" /><label>Trois auteurs ou plus</label>
+                        </div>
                     </div>
-                    <p>Nom de l'organisme</p>
-                    <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
-                        <input type="text" id="mono-oname" value=""/>
+                    <p>Information sur la monographie</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2%; padding-bottom: 5px;">
+                        <label>Édition</label><label>Éditeur</label><label>Ville</label>
+                        <input type="text" id="mono-fname" value="text" />
+                        <input type="text" id="mono-lname" value="text" />
+                        <input type="text" id="mono-fname" value="text" />
                     </div>
-                    <p>Date de consultation</p>
-                    <input type="date" id="mono-refdate" value=""/>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 2%; padding-bottom: 5px;">
+                        <label>Collection</label>
+                        <input type="text" id="mono-lname" value="text" />
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
+
+                        <label>Année de publication</label><label>Nombre de pages</label>
+                        <input type="number" id="mono-fname" value="2020" />
+                        <input type="number" id="mono-lname" value="316" />
+                    </div>
+
                     <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
-                        <button type="button" onclick="quotGenerate()">Générer ma source</button>
+                        <button type="button" class="generate-button" onclick="quotGenerate()">Générer ma
+                            source</button>
                     </div>
-                    <p id="mono-source-fr">Example: REMMIGGI, Frank. Université Laval, (réf. du 21 janvier 2019). <i>La répartition du bouleau jaune en Mauricie Bois-Francs [en ligne]</i>, addresse URL: http://bit.ly/IU4X2</p>
+                    <h4 id="mono-source-fr">Example: REMMIGGI, Frank. Université Laval, (réf. du 21 janvier 2019). <i>La
+                            répartition du bouleau jaune en Mauricie Bois-Francs [en ligne]</i>, addresse URL:
+                        http://bit.ly/IU4X2
+                    </h4>
                     <!-- <p>mono-lname, mono-fname. mono-oname, (réf. du 21 janvier 2019). <i>mono-title [en ligne]</i>, addresse URL: mono-url</p> -->
-                    <p id="mono-source-en">Exemple: REMMIGGI, Frank. Université Laval, (réf. du 21 janvier 2019). <i>La répartition du bouleau jaune en Mauricie Bois-Francs [en ligne]</i>, addresse URL: http://bit.ly/IU4X2</p>
-                    <button type="button" onclick="copyText(document.getElementById('mono-source-fr').innerHTML, 'mono-tooltip-fr')" onmouseout="outFunc('mono-tooltip-fr')" class="tooltip">
-                        <span class="tooltiptext" id="mono-tooltip-fr">Copy to clipboard</span>
+                    <h4 id="mono-source-en">Exemple: REMMIGGI, Frank. Université Laval, (réf. du 21 janvier 2019). <i>La
+                            répartition du bouleau jaune en Mauricie Bois-Francs [en ligne]</i>, addresse URL:
+                        http://bit.ly/IU4X2
+                    </h4>
+                    <button type="button" id="mono-copy-fr"
+                        onclick="copyText(document.getElementById('mono-source-fr').innerHTML, 'mono-tooltip-fr')"
+                        onmouseout="outFunc('mono-tooltip-fr')" class="tooltip copy-button">
+                        <span class="tooltiptext" id="mono-tooltip-fr">Copy</span>
                         Copier en FR
                     </button>
-                    <button type="button" onclick="copyText(document.getElementById('mono-source-en').innerHTML, 'mono-tooltip-en')" onmouseout="outFunc('mono-tooltip-en')" class="tooltip">
-                        <span class="tooltiptext" id="mono-tooltip-en">Copy to clipboard</span>
+                    <button type="button" id="mono-copy-en"
+                        onclick="copyText(document.getElementById('mono-source-en').innerHTML, 'mono-tooltip-en')"
+                        onmouseout="outFunc('mono-tooltip-en')" class="tooltip copy-button">
+                        <span class="tooltiptext" id="mono-tooltip-en">Copy</span>
                         Copy in EN
                     </button>
                 </form>
             </div>
             <h5 style="margin-top: 120px; margin-bottom: 20px;" id="periodic">Périodique</h5>
-            <h5 style="margin-top: 120px; margin-bottom: 20px;" id="govpub">Publication gouvernementale ou officielle</h5>
+            <h5 style="margin-top: 120px; margin-bottom: 20px;" id="govpub">Publication gouvernementale ou officielle
+            </h5>
             <h5 style="margin-top: 100px; margin-bottom: 20px;" id="reference">Ouvrage de référence</h5>
             <h5 style="margin-top: 120px; margin-bottom: 20px;" id="quot">Quotidien</h5>
-            <div style="background-color: rgba(225, 213, 255, 0.7); padding: 20px 30px 40px;">
+            <div class="src-bg">
                 <form id="quot-info">
                     <p>Titre de l'article dans le quotidien</p>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
-                        <input type="text" name="quot-title" value="Je, me, moi"/>
+                        <input type="text" name="quot-title" value="" />
                     </div>
- 
+
                     <p>Information sur l'auteur</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
                         <label>Prénom</label><label>Nom de famille</label>
-                        <input type="text" name="quot-fname" value="Jose"/>
-                        <input type="text" name="quot-lname" value="Cornholio"/>
+                        <input type="text" name="quot-fname" value="" />
+                        <input type="text" name="quot-lname" value="" />
                     </div>
                     <p>Information sur le quotidien</p>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
                         <label>Nom du quotidien</label>
-                        <input type="text" name="quot-name" value="Le Figaro"/>
+                        <input type="text" name="quot-name" value="" />
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
                         <label>URL du quotidien si trouvé en ligne</label>
-                        <input type="text" name="quot-url" value=""/>
+                        <input type="text" name="quot-url" value="" />
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2%; padding-bottom: 20px;">
                         <label>Volume</label>
                         <label>Numéro 3</label>
                         <label>Page de référence</label>
-                        <input type="number" name="quot-page" value="54"/>
-                        <input type="number" name="quot-vol" value="16"/>
-                        <input type="number" name="quot-num" value="97"/>
+                        <input type="number" name="quot-page" value="" />
+                        <input type="number" name="quot-vol" value="" />
+                        <input type="number" name="quot-num" value="" />
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
                         <label>Ville</label>
                         <label>Date de parution</label>
-                        <input type="text" name="quot-city" value="text"/>
-                        <input type="date" name="quot-pubdate" value="2019-07-04"/>
+                        <input type="text" name="quot-city" value="" />
+                        <input type="date" name="quot-pubdate" value="" />
                     </div>
                     <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
-                        <button type="button" onclick="quotGenerate()">Générer ma source</button>
+                        <button type="button" class="generate-button" onclick="quotGenerate()">Générer ma
+                            source</button>
                     </div>
-                    <p id="quot-source-fr">Example: JUPPE, Alain. <i>Le premier ministre [en ligne]</i>, addresse URL: http://bit.ly/IU4X2 (page publiée le 19 mars 2020).</p>
-                    <p id="quot-source-en">Exemple: JUPPE, Alain. <i>Le premier ministre [online]</i>, URL address: http://bit.ly/IU4X2 (page published on March 19, 2020).</p>
-                    <button type="button" onclick="copyText(document.getElementById('quot-source-fr').innerHTML, 'quot-tooltip-fr')" onmouseout="outFunc('quot-tooltip-fr')" class="tooltip">
-                        <span class="tooltiptext" id="quot-tooltip-fr">Copy to clipboard</span>
-                        Copier en FR
-                    </button>
-                    <button type="button" onclick="copyText(document.getElementById('quot-source-en').innerHTML, 'quot-tooltip-en')" onmouseout="outFunc('quot-tooltip-en')" class="tooltip">
-                        <span class="tooltiptext" id="quot-tooltip-en">Copy to clipboard</span>
-                        Copy in EN
-                    </button>
+                    <div id="quot-alert" class="alert-box invisible">
+                        <span class="alert-text">Please provide all necessary information</span>
+                    </div>
+                    <div id="quot-sources" class="invisible">
+                        <h4 id="quot-source-fr">Example: JUPPE, Alain. <i>Le premier ministre [en ligne]</i>, addresse
+                            URL:
+                            http://bit.ly/IU4X2 (page publiée le 19 mars 2020).
+                        </h4>
+                        <h4 id="quot-source-en">Exemple: JUPPE, Alain. <i>Le premier ministre [online]</i>, URL address:
+                            http://bit.ly/IU4X2 (page published on March 19, 2020).
+                        </h4>
+                        <button type="button" id="quot-copy-fr"
+                            onclick="copyText(document.getElementById('quot-source-fr').innerHTML, 'quot-tooltip-fr')"
+                            onmouseout="outFunc('quot-tooltip-fr')" class="tooltip copy-button">
+                            <span class="tooltiptext" id="quot-tooltip-fr">Copy</span>
+                            Copier en FR
+                        </button>
+                        <button type="button" id="quot-copy-en"
+                            onclick="copyText(document.getElementById('quot-source-en').innerHTML, 'quot-tooltip-en')"
+                            onmouseout="outFunc('quot-tooltip-en')" class="tooltip copy-button">
+                            <span class="tooltiptext" id="quot-tooltip-en">Copy</span>
+                            Copy in EN
+                        </button>
+                    </div>
                 </form>
             </div>
             <h5 style="margin-top: 120px; margin-bottom: 20px;" id="blog">Blogue</h5>
             <p style="padding: 20px 0px;">Un blogue trouvé en ligne doit être cité comme un site internet.</p>
-            <div style="background-color: rgba(225, 213, 255, 0.7); padding: 20px 30px 40px;">
+            <div class="src-bg">
                 <form id="blog-info">
                     <p>Titre du blogue</p>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
-                        <input type="text" name="blog-title" value="Le coin du premier ministre"/>
+                        <input type="text" name="blog-title" value="Le coin du premier ministre" />
                     </div>
                     <p>URL du Blogue</p>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
-                        <input type="text" name="blog-url" value="http://bit.ly/1iGx7oS"/>
+                        <input type="text" name="blog-url" value="http://bit.ly/1iGx7oS" />
                     </div>
                     <p>Information sur l'auteur</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
                         <label>Prénom</label><label>Nom de famille</label>
-                        <input type="text" name="blog-fname" value="Alain"/>
-                        <input type="text" name="blog-lname" value="Juppe"/>
+                        <input type="text" name="blog-fname" value="Alain" />
+                        <input type="text" name="blog-lname" value="Juppe" />
                     </div>
                     <p>Date de publication</p>
-                    <input type="date" name="blog-pubdate" value="2020-03-19"/>
+                    <input type="date" name="blog-pubdate" value="2020-03-19" />
                     <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
-                        <button type="button" onclick="blogGenerate()">Générer ma source</button>
+                        <button type="button" class="generate-button" onclick="blogGenerate()">Générer ma
+                            source</button>
                     </div>
-                    <p id="blog-source-fr">Example: JUPPE, Alain. <i>Le premier ministre [en ligne]</i>, addresse URL: http://bit.ly/IU4X2 (page publiée le 19 mars 2020).</p>
-                    <p id="blog-source-en">blog-lname, blog-fname. <i>blog-title [en ligne]</i>, addresse URL: blog-url</i> (page publiée le blog-pubdate).</p>
-                    <button type="button" onclick="copyText(document.getElementById('blog-source-fr').innerHTML, 'blog-tooltip-fr')" onmouseout="outFunc('blog-tooltip-fr')" class="tooltip">
-                        <span class="tooltiptext" id="blog-tooltip-fr">Copy to clipboard</span>
+                    <h4 id="blog-source-fr">Example: JUPPE, Alain. <i>Le premier ministre [en ligne]</i>, addresse URL:
+                        http://bit.ly/IU4X2 (page publiée le 19 mars 2020).
+                    </h4>
+                    <h4 id="blog-source-en">blog-lname, blog-fname. <i>blog-title [en ligne]</i>, addresse URL:
+                        blog-url</i> (page publiée le blog-pubdate).
+                    </h4>
+                    <button type="button" id="blog-copy-fr"
+                        onclick="copyText(document.getElementById('blog-source-fr').innerHTML, 'blog-tooltip-fr')"
+                        onmouseout="outFunc('blog-tooltip-fr')" class="tooltip copy-button">
+                        <span class="tooltiptext" id="blog-tooltip-fr">Copy</span>
                         Copier en FR
                     </button>
-                    <button type="button" onclick="copyText(document.getElementById('blog-source-en').innerHTML, 'blog-tooltip-en')" onmouseout="outFunc('blog-tooltip-en')" class="tooltip">
-                        <span class="tooltiptext" id="blog-tooltip-en">Copy to clipboard</span>
+                    <button type="button" id="blog-copy-en"
+                        onclick="copyText(document.getElementById('blog-source-en').innerHTML, 'blog-tooltip-en')"
+                        onmouseout="outFunc('blog-tooltip-en')" class="tooltip copy-button">
+                        <span class="tooltiptext" id="blog-tooltip-en">Copy</span>
                         Copy in EN
                     </button>
                 </form>
@@ -206,6 +285,5 @@
         <p style="text-align: center;">&copy; 2024 Personal Website - Melissa Deng</p>
     </section>
 </body>
-</html>
 
- 
+</html>
