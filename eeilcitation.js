@@ -1,3 +1,7 @@
+const alertMessageMissingFirstAuthorInfo = "Error: Missing information for the author.";
+const alertMessageMissingSecondAuthorInfo = "Error: Missing information for the second author.";
+const alertMessageInvalidDate = "Error: Invalid date.";
+
 let prevScrollPos = window.scrollY;
 let clicked = false;
 
@@ -59,9 +63,6 @@ function outFunc(tooltip) {
 }
 
 function authorsFormatter(lname, fname, lname2, fname2, authors3, alert) {
-  var alertMessageMissingFirstAuthorInfo = "Error: Missing information for the author.";
-  var alertMessageMissingSecondAuthorInfo = "Error: Missing information for the second author.";
-
   if (!lname && !fname && !lname2 && !fname2 && !authors3) { // no author
     return ["S.A.,", "S.A.,"];
   }
@@ -90,7 +91,6 @@ function authorsFormatter(lname, fname, lname2, fname2, authors3, alert) {
 }
 
 function dateFormatter(inputDateString, alert) {
-  var alertMessageInvalidDate = "Error: Invalid date.";
   const inputDate = new Date(inputDateString);
   const currentDate = new Date();
   if (inputDate > currentDate) {
@@ -102,8 +102,30 @@ function dateFormatter(inputDateString, alert) {
   const formattedDateFr = new Intl.DateTimeFormat('fr-FR', options).format(inputDate);
   const formattedDateEn = new Intl.DateTimeFormat('en-US', options).format(inputDate);
   return [formattedDateFr, formattedDateEn];
+}
 
+function editionFormatter(inputEdition) {
+  var editionFr = `${inputEdition}<sup>e</sup>`;
+  var editionEn = `${inputEdition}<sup>th</sup>`;
+  const lastDigit = inputEdition % 10;
+  const lastTwoDigits = inputEdition % 100;
 
+  if (lastTwoDigits >= 11 && lastTwoDigits <= 13) {
+    return [editionFr, editionEn];
+  }
+  switch (lastDigit) {
+    case 1:
+      editionFr = `${inputEdition}<sup>re</sup>`;
+      editionEn = `${inputEdition}<sup>st</sup>`;
+      break;
+    case 2:
+      editionEn = `${inputEdition}<sup>nd</sup>`;
+      break;
+    case 3:
+      editionEn = `${inputEdition}<sup>rd</sup>`;
+      break;
+  }
+  return [editionFr, editionEn];
 }
 
 function websiteGenerate() {
@@ -149,6 +171,69 @@ function websiteGenerate() {
 
   fr.innerHTML = `${authorSrcFr} ${oname} (réf. du ${dateFr}), <i>${title} [en ligne]</i>, adresse URL: ${url}`;
   en.innerHTML = `${authorSrcEn} ${oname} (ref. of ${dateEn}), <i>${title} [online]</i>, URL address: ${url}`;
+}
+
+function monoGenerate() {
+
+  var title = document.querySelector('[name="mono-title"]').value.trim();
+
+  var lname = document.querySelector('[name="mono-lname"]').value.trim();
+  var fname = document.querySelector('[name="mono-fname"]').value.trim();
+  var lname2 = document.querySelector('[name="mono-lname2"]').value.trim();
+  var fname2 = document.querySelector('[name="mono-fname2"]').value.trim();
+  var authors3 = document.querySelector('[name="mono-3authors"]').checked;
+
+  var edition = document.querySelector('[name="mono-edition"]').value.trim();
+  var editor = document.querySelector('[name="mono-editor"]').value.trim();
+  var city = document.querySelector('[name="mono-city"]').value.trim();
+  var collection = document.querySelector('[name="mono-collection"]').value.trim();
+  var year = document.querySelector('[name="mono-year"]').value.trim();
+  var pages = document.querySelector('[name="mono-pages"]').value.trim();
+  var url = document.querySelector('[name="mono-url"]').value.trim();
+
+  const fr = document.getElementById("mono-source-fr");
+  const en = document.getElementById("mono-source-en");
+  const sourcesDiv = document.getElementById("mono-sources");
+  const alert = document.getElementById("mono-alert");
+
+  if (!title || !editor) {
+    alert.classList.remove("invisible");
+    sourcesDiv.classList.add("invisible");
+    return;
+  }
+
+  var authors = authorsFormatter(lname, fname, lname2, fname2, authors3, alert);
+  var editions = edition ? editionFormatter(edition) : null;
+  if (authors === undefined) {
+    alert.classList.remove("invisible");
+    sourcesDiv.classList.add("invisible");
+    return;
+  }
+  var authorSrcFr = authors[0];
+  var authorSrcEn = authors[1];
+
+  alert.classList.add("invisible");
+  sourcesDiv.classList.remove("invisible");
+
+  var editionFr = "", editionEn = "";
+  if (editions != null) {
+    editionFr = `${editions[0]} éd.,`;
+    editionEn = `${editions[1]} ed.,`;
+  }
+
+  city = city ? `${city},` : "s.l.,";
+  year = year ? `${year},` : "s.d.,";
+  pages = pages ? `${pages} p.` : "";
+  collection = collection ? `, coll. ${collection}.` : "";
+
+  if (!url) {
+    fr.innerHTML = `${authorSrcFr} <i>${title}</i>, ${editionFr} ${city} ${editor}, ${year} ${pages} ${collection}`;
+    en.innerHTML = `${authorSrcEn} <i>${title}</i>, ${editionEn} ${city} ${editor}, ${year} ${pages} ${collection}`;
+  } else {
+    fr.innerHTML = `${authorSrcFr} <i>${title}</i>, ${editionFr} S.D., ${editor}, ${year} [Disponible en ligne à l'addresse : ${url}]`;
+    en.innerHTML = `${authorSrcEn} <i>${title}</i>, ${editionEn} S.D., ${editor}, ${year} [Available online at the address: ${url}]`;
+  }
+
 }
 
 function quotGenerate() {

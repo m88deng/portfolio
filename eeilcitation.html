@@ -99,68 +99,64 @@
                 <form id="monography-info">
                     <p>Titre de la monographie</p>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
-                        <input type="text" id="mono-title" value="Brunet" />
-                    </div>
-                    <p>URL du la monographie si trouvé en ligne</p>
-                    <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
-                        <input type="text" id="mono-url" value="text" />
+                        <input type="text" name="mono-title" value="" />
                     </div>
                     <p>Information sur les auteurs</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
                         <label>Prénom du</label><label>Nom de famille</label>
-                        <input type="text" id="mono-fname" value="Brunet" />
-                        <input type="text" id="mono-lname" value="Pablo" />
+                        <input type="text" name="mono-fname" value="" />
+                        <input type="text" name="mono-lname" value="" />
                         <label>Prénom</label><label>Nom de famille</label>
-                        <input type="text" id="mono-fname" value="Brunet" />
-                        <input type="text" id="mono-lname" value="Pablo" />
+                        <input type="text" name="mono-fname2" value="" />
+                        <input type="text" name="mono-lname2" value="" />
                         <div style="padding-top: 10px;">
-                            <input type="checkbox" /><label>Trois auteurs ou plus</label>
+                            <input type="checkbox" name="mono-3authors" /><label>Trois auteurs ou plus</label>
                         </div>
                     </div>
                     <p>Information sur la monographie</p>
                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2%; padding-bottom: 5px;">
-                        <label>Édition</label><label>Éditeur</label><label>Ville</label>
-                        <input type="text" id="mono-fname" value="text" />
-                        <input type="text" id="mono-lname" value="text" />
-                        <input type="text" id="mono-fname" value="text" />
+                        <label>Numéro d'édition</label><label>Éditeur</label><label>Ville</label>
+                        <input type="number" name="mono-edition" min="1" value="" />
+                        <input type="text" name="mono-editor" value="" />
+                        <input type="text" name="mono-city" value="" />
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr; gap: 2%; padding-bottom: 5px;">
                         <label>Collection</label>
-                        <input type="text" id="mono-lname" value="text" />
+                        <input type="text" name="mono-collection" value="" />
                     </div>
-
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
-
                         <label>Année de publication</label><label>Nombre de pages</label>
-                        <input type="number" id="mono-fname" value="2020" />
-                        <input type="number" id="mono-lname" value="316" />
+                        <input type="number" name="mono-year" value="" />
+                        <input type="number" name="mono-pages" min="1" value="" />
                     </div>
-
+                    <p>URL du la monographie si trouvé en ligne</p>
+                    <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
+                        <input type="text" name="mono-url" value="" />
+                    </div>
                     <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
-                        <button type="button" class="generate-button" onclick="quotGenerate()">Générer ma
+                        <button type="button" class="generate-button" onclick="monoGenerate()">Générer ma
                             source</button>
                     </div>
-                    <h4 id="mono-source-fr">Example: REMMIGGI, Frank. Université Laval, (réf. du 21 janvier 2019). <i>La
-                            répartition du bouleau jaune en Mauricie Bois-Francs [en ligne]</i>, addresse URL:
-                        http://bit.ly/IU4X2
-                    </h4>
                     <!-- <p>mono-lname, mono-fname. mono-oname, (réf. du 21 janvier 2019). <i>mono-title [en ligne]</i>, addresse URL: mono-url</p> -->
-                    <h4 id="mono-source-en">Exemple: REMMIGGI, Frank. Université Laval, (réf. du 21 janvier 2019). <i>La
-                            répartition du bouleau jaune en Mauricie Bois-Francs [en ligne]</i>, addresse URL:
-                        http://bit.ly/IU4X2
-                    </h4>
-                    <button type="button" id="mono-copy-fr"
-                        onclick="copyText(document.getElementById('mono-source-fr').innerHTML, 'mono-tooltip-fr')"
-                        onmouseout="outFunc('mono-tooltip-fr')" class="tooltip copy-button">
-                        <span class="tooltiptext" id="mono-tooltip-fr">Copy</span>
-                        Copier en FR
-                    </button>
-                    <button type="button" id="mono-copy-en"
-                        onclick="copyText(document.getElementById('mono-source-en').innerHTML, 'mono-tooltip-en')"
-                        onmouseout="outFunc('mono-tooltip-en')" class="tooltip copy-button">
-                        <span class="tooltiptext" id="mono-tooltip-en">Copy</span>
-                        Copy in EN
-                    </button>
+                    <div id="mono-alert" class="alert-box invisible">
+                        <span class="alert-text">Please provide all necessary information</span>
+                    </div>
+                    <div id="mono-sources" class="invisible">
+                        <h4 id="mono-source-fr"></h4>
+                        <h4 id="mono-source-en"></h4>
+                        <button type="button" id="mono-copy-fr"
+                            onclick="copyText(document.getElementById('mono-source-fr').innerHTML, 'mono-tooltip-fr')"
+                            onmouseout="outFunc('mono-tooltip-fr')" class="tooltip copy-button">
+                            <span class="tooltiptext" id="mono-tooltip-fr">Copy</span>
+                            Copier en FR
+                        </button>
+                        <button type="button" id="mono-copy-en"
+                            onclick="copyText(document.getElementById('mono-source-en').innerHTML, 'mono-tooltip-en')"
+                            onmouseout="outFunc('mono-tooltip-en')" class="tooltip copy-button">
+                            <span class="tooltiptext" id="mono-tooltip-en">Copy</span>
+                            Copy in EN
+                        </button>
+                    </div>
                 </form>
             </div>
             <h5 style="margin-top: 120px; margin-bottom: 20px;" id="periodic">Périodique</h5>
