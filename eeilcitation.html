@@ -47,20 +47,26 @@
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
                         <input type="text" name="web-title" value="" />
                     </div>
-                    <p>URL Site Internet</p>
+                    <p>URL du site internet</p>
                     <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
                         <input type="text" name="web-url" value="" />
                     </div>
                     <p>Information sur l'auteur</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
-                        <label>Prénom</label><label>Nom de famille</label>
-                        <input type="text" name="web-fname" value="" />
-                        <input type="text" name="web-lname" value="" />
-                        <label>Prénom</label><label>Nom de famille</label>
-                        <input type="text" name="web-fname2" value="" />
-                        <input type="text" name="web-lname2" value="" />
+                    <div style="padding-bottom: 20px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 5px;">
+                            <label>Prénom</label><label>Nom de famille</label>
+                            <input type="text" name="web-fname" value="" />
+                            <input type="text" name="web-lname" value="" />
+                        </div>
+                        <div id="web-author2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%;">
+                            <label>Prénom</label><label>Nom de famille</label>
+                            <input type="text" name="web-fname2" value="" />
+                            <input type="text" name="web-lname2" value="" />
+                        </div>
                         <div style="padding-top: 10px;">
-                            <input type="checkbox" name="web-3authors" /><label>Trois auteurs ou plus</label>
+                            <input type="checkbox" name="web-3authors"
+                                onclick='authorsDisplay("web-author2", "web-3authors")' /><label>Trois auteurs ou
+                                plus</label>
                         </div>
                     </div>
                     <p>Nom de l'organisme</p>
@@ -74,7 +80,7 @@
                             source</button>
                     </div>
                     <div id="web-alert" class="alert-box invisible">
-                        <span class="alert-text">Please provide all necessary information</span>
+                        <span class="alert-text">Veuillez remplir tous les champs nécessaires</span>
                     </div>
                     <div id="web-sources" class="invisible">
                         <h4 id="web-source-fr"></h4>
@@ -102,15 +108,21 @@
                         <input type="text" name="mono-title" value="" />
                     </div>
                     <p>Information sur les auteurs</p>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
-                        <label>Prénom du</label><label>Nom de famille</label>
-                        <input type="text" name="mono-fname" value="" />
-                        <input type="text" name="mono-lname" value="" />
-                        <label>Prénom</label><label>Nom de famille</label>
-                        <input type="text" name="mono-fname2" value="" />
-                        <input type="text" name="mono-lname2" value="" />
+                    <div style="padding-bottom: 20px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 5px;">
+                            <label>Prénom</label><label>Nom de famille</label>
+                            <input type="text" name="mono-fname" value="" />
+                            <input type="text" name="mono-lname" value="" />
+                        </div>
+                        <div id="mono-author2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%;">
+                            <label>Prénom</label><label>Nom de famille</label>
+                            <input type="text" name="mono-fname2" value="" />
+                            <input type="text" name="mono-lname2" value="" />
+                        </div>
                         <div style="padding-top: 10px;">
-                            <input type="checkbox" name="mono-3authors" /><label>Trois auteurs ou plus</label>
+                            <input type="checkbox" name="mono-3authors"
+                                onclick='authorsDisplay("mono-author2", "mono-3authors")' /><label>Trois auteurs ou
+                                plus</label>
                         </div>
                     </div>
                     <p>Information sur la monographie</p>
@@ -126,7 +138,7 @@
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
                         <label>Année de publication</label><label>Nombre de pages</label>
-                        <input type="number" name="mono-year" value="" />
+                        <input type="number" name="mono-year" min="1" value="" />
                         <input type="number" name="mono-pages" min="1" value="" />
                     </div>
                     <p>URL du la monographie si trouvé en ligne</p>
@@ -139,7 +151,7 @@
                     </div>
                     <!-- <p>mono-lname, mono-fname. mono-oname, (réf. du 21 janvier 2019). <i>mono-title [en ligne]</i>, addresse URL: mono-url</p> -->
                     <div id="mono-alert" class="alert-box invisible">
-                        <span class="alert-text">Please provide all necessary information</span>
+                        <span class="alert-text">Veuillez remplir tous les champs nécessaires</span>
                     </div>
                     <div id="mono-sources" class="invisible">
                         <h4 id="mono-source-fr"></h4>
@@ -160,7 +172,168 @@
                 </form>
             </div>
             <h5 style="margin-top: 120px; margin-bottom: 20px;" id="periodic">Périodique</h5>
+            <div class="src-bg">
+                <form id="periodic-info">
+                    <p>Titre de l'article dans le périodique</p>
+                    <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
+                        <input type="text" name="periodic-title" value="" />
+                    </div>
+                    <p>Information sur les auteurs</p>
+                    <div style="padding-bottom: 20px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 5px;">
+                            <label>Prénom</label><label>Nom de famille</label>
+                            <input type="text" name="periodic-fname" value="" />
+                            <input type="text" name="periodic-lname" value="" />
+                        </div>
+                        <div id="periodic-author2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%;">
+                            <label>Prénom</label><label>Nom de famille</label>
+                            <input type="text" name="periodic-fname2" value="" />
+                            <input type="text" name="periodic-lname2" value="" />
+                        </div>
+                        <div style="padding-top: 10px;">
+                            <input type="checkbox" name="periodic-3authors"
+                                onclick='authorsDisplay("periodic-author2", "periodic-3authors")' /><label>Trois auteurs
+                                ou
+                                plus</label>
+                        </div>
+                    </div>
+                    <p>Information sur le périodique</p>
+                    <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
+                        <label>Nom du périodique</label>
+                        <input type="text" name="periodic-name" value="" />
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
+                        <label>Volume</label>
+                        <label>Numéro</label>
+                        <input type="number" name="periodic-vol" min="1" value="" />
+                        <input type="number" name="periodic-num" min="1" value="" />
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 2%; padding-bottom: 20px;">
+                        <label>Date de parution</label>
+                        <input type="month" name="periodic-pubdate" value="" />
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
+                        <label>Plage de référence</label>
+                        <label></label>
+                        <input id="frompage" type="number" name="periodic-frompage" min="1" value="" />
+                        <input id="topage" type="number" name="periodic-topage" min="1" value="" />
+                        <script>
+                            const fromPageInput = document.getElementById("frompage");
+                            const toPageInput = document.getElementById("topage");
+                            fromPageInput.addEventListener('input', () => {
+                                const fromPageValue = parseInt(fromPageInput.value, 10) || 1; 
+                                toPageInput.min = fromPageValue; 
+                                if (parseInt(toPageInput.value, 10) < fromPageValue) {
+                                    toPageInput.value = fromPageValue;
+                                }
+                            });
+                        </script>
+                    </div>
+                    <p>URL du la périodique si trouvé en ligne</p>
+                    <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
+                        <input type="text" name="periodic-url" value="" />
+                    </div>
+                    <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+                        <button type="button" class="generate-button" onclick="periodicGenerate()">Générer ma
+                            source</button>
+                    </div>
+                    <div id="periodic-alert" class="alert-box invisible">
+                        <span class="alert-text">Veuillez remplir tous les champs nécessaires</span>
+                    </div>
+                    <div id="periodic-sources" class="invisible">
+                        <h4 id="periodic-source-fr"></h4>
+                        <h4 id="periodic-source-en"></h4>
+                        <button type="button" id="periodic-copy-fr"
+                            onclick="copyText(document.getElementById('periodic-source-fr').innerHTML, 'periodic-tooltip-fr')"
+                            onmouseout="outFunc('periodic-tooltip-fr')" class="tooltip copy-button">
+                            <span class="tooltiptext" id="periodic-tooltip-fr">Copy</span>
+                            Copier en FR
+                        </button>
+                        <button type="button" id="periodic-copy-en"
+                            onclick="copyText(document.getElementById('periodic-source-en').innerHTML, 'periodic-tooltip-en')"
+                            onmouseout="outFunc('periodic-tooltip-en')" class="tooltip copy-button">
+                            <span class="tooltiptext" id="periodic-tooltip-en">Copy</span>
+                            Copy in EN
+                        </button>
+                    </div>
+                </form>
+            </div>
             <h5 style="margin-top: 120px; margin-bottom: 20px;" id="govpub">Publication gouvernementale ou officielle
+                <div class="src-bg">
+                    <form id="govpub-info">
+                        <p>Titre de la publication gouvernementale</p>
+                        <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
+                            <input type="text" name="govpub-title" value="" />
+                        </div>
+                        <p>Information sur l'organisme du gouvernement</p>
+                        <div style="padding-bottom: 20px;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 5px;">
+                                <label>Lieu</label><label>Pays ou Province</label>
+                                <input type="text" name="govpub-fname" value="" />
+                                <input type="text" name="govpub-lname" value="" />
+                            </div>
+                            <div id="govpub-author2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%;">
+                                <label>Prénom</label><label>Nom de famille</label>
+                                <input type="text" name="govpub-fname2" value="" />
+                                <input type="text" name="govpub-lname2" value="" />
+                            </div>
+                            <div style="padding-top: 10px;">
+                                <input type="checkbox" name="govpub-3authors"
+                                    onclick='authorsDisplay("govpub-author2", "govpub-3authors")' /><label>Trois auteurs
+                                    ou
+                                    plus</label>
+                            </div>
+                        </div>
+                        <p>Information sur le périodique</p>
+                        <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
+                            <label>Nom du périodique</label>
+                            <input type="text" name="govpub-name" value="" />
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
+                            <label>Volume</label>
+                            <label>Numéro</label>
+                            <input type="number" name="govpub-vol" min="1" value="" />
+                            <input type="number" name="govpub-num" min="1" value="" />
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 2%; padding-bottom: 20px;">
+                            <label>Date de parution</label>
+                            <input type="month" name="govpub-pubdate" value="" />
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2%; padding-bottom: 20px;">
+                            <label>Plage de référence</label>
+                            <label></label>
+                            <input id="frompage" type="number" name="govpub-frompage" min="1" value="" />
+                            <input id="topage" type="number" name="govpub-topage" min="1" value="" />
+                        </div>
+                        <p>URL du la périodique si trouvé en ligne</p>
+                        <div style="display: grid; grid-template-columns: 1fr; padding-bottom: 20px;">
+                            <input type="text" name="govpub-url" value="" />
+                        </div>
+                        <div style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+                            <button type="button" class="generate-button" onclick="govpubGenerate()">Générer ma
+                                source</button>
+                        </div>
+                        <div id="govpub-alert" class="alert-box invisible">
+                            <span class="alert-text">Veuillez remplir tous les champs nécessaires</span>
+                        </div>
+                        <div id="govpub-sources" class="invisible">
+                            <h4 id="govpub-source-fr"></h4>
+                            <h4 id="govpub-source-en"></h4>
+                            <button type="button" id="govpub-copy-fr"
+                                onclick="copyText(document.getElementById('govpub-source-fr').innerHTML, 'govpub-tooltip-fr')"
+                                onmouseout="outFunc('govpub-tooltip-fr')" class="tooltip copy-button">
+                                <span class="tooltiptext" id="govpub-tooltip-fr">Copy</span>
+                                Copier en FR
+                            </button>
+                            <button type="button" id="govpub-copy-en"
+                                onclick="copyText(document.getElementById('govpub-source-en').innerHTML, 'govpub-tooltip-en')"
+                                onmouseout="outFunc('govpub-tooltip-en')" class="tooltip copy-button">
+                                <span class="tooltiptext" id="govpub-tooltip-en">Copy</span>
+                                Copy in EN
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </h5>
             <h5 style="margin-top: 100px; margin-bottom: 20px;" id="reference">Ouvrage de référence</h5>
             <h5 style="margin-top: 120px; margin-bottom: 20px;" id="quot">Quotidien</h5>
@@ -188,7 +361,7 @@
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2%; padding-bottom: 20px;">
                         <label>Volume</label>
-                        <label>Numéro 3</label>
+                        <label>Numéro</label>
                         <label>Page de référence</label>
                         <input type="number" name="quot-page" value="" />
                         <input type="number" name="quot-vol" value="" />
@@ -205,7 +378,7 @@
                             source</button>
                     </div>
                     <div id="quot-alert" class="alert-box invisible">
-                        <span class="alert-text">Please provide all necessary information</span>
+                        <span class="alert-text">Veuillez remplir tous les champs nécessaires</span>
                     </div>
                     <div id="quot-sources" class="invisible">
                         <h4 id="quot-source-fr">Example: JUPPE, Alain. <i>Le premier ministre [en ligne]</i>, addresse

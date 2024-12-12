@@ -62,6 +62,14 @@ function outFunc(tooltip) {
   tooltip.innerHTML = "Copy";
 }
 
+function authorsDisplay(author2, authors3) {
+  if (document.querySelector(`[name='${authors3}']`).checked) {
+    document.getElementById(author2).style.display = "none";
+  } else {
+    document.getElementById(author2).style.display = "grid";
+  }
+}
+
 function authorsFormatter(lname, fname, lname2, fname2, authors3, alert) {
   if (!lname && !fname && !lname2 && !fname2 && !authors3) { // no author
     return ["S.A.,", "S.A.,"];
@@ -91,17 +99,35 @@ function authorsFormatter(lname, fname, lname2, fname2, authors3, alert) {
 }
 
 function dateFormatter(inputDateString, alert) {
-  const inputDate = new Date(inputDateString);
-  const currentDate = new Date();
-  if (inputDate > currentDate) {
-    console.error(alertMessageInvalidDate);
-    alert.innerHTML = alertMessageInvalidDate;
-    return;
+  if (inputDateString.length > 10) {
+    const [year, month, day] = inputDateString.split('-').map(Number);
+    const inputDate = new Date(year, month - 1, day);
+
+    const currentDate = new Date();
+    if (inputDate > currentDate) {
+      console.error(alertMessageInvalidDate);
+      alert.innerHTML = alertMessageInvalidDate;
+      return;
+    }
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDateFr = new Intl.DateTimeFormat('fr-FR', options).format(inputDate);
+    const formattedDateEn = new Intl.DateTimeFormat('en-US', options).format(inputDate);
+    return [formattedDateFr, formattedDateEn];
+  } else {
+    const [year, month] = inputDateString.split('-').map(Number);
+    const inputDate = new Date(year, month - 1);
+
+    const currentDate = new Date();
+    if (inputDate > currentDate) {
+      console.error(alertMessageInvalidDate);
+      alert.innerHTML = alertMessageInvalidDate;
+      return;
+    }
+    const options = { year: 'numeric', month: 'long'};
+    const formattedDateFr = new Intl.DateTimeFormat('fr-FR', options).format(inputDate);
+    const formattedDateEn = new Intl.DateTimeFormat('en-US', options).format(inputDate);
+    return [formattedDateFr, formattedDateEn];
   }
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  const formattedDateFr = new Intl.DateTimeFormat('fr-FR', options).format(inputDate);
-  const formattedDateEn = new Intl.DateTimeFormat('en-US', options).format(inputDate);
-  return [formattedDateFr, formattedDateEn];
 }
 
 function editionFormatter(inputEdition) {
@@ -196,21 +222,15 @@ function monoGenerate() {
   const sourcesDiv = document.getElementById("mono-sources");
   const alert = document.getElementById("mono-alert");
 
-  if (!title || !editor) {
-    alert.classList.remove("invisible");
-    sourcesDiv.classList.add("invisible");
-    return;
-  }
-
   var authors = authorsFormatter(lname, fname, lname2, fname2, authors3, alert);
-  var editions = edition ? editionFormatter(edition) : null;
-  if (authors === undefined) {
+  if (!title || !editor || authors === undefined) {
     alert.classList.remove("invisible");
     sourcesDiv.classList.add("invisible");
     return;
   }
   var authorSrcFr = authors[0];
   var authorSrcEn = authors[1];
+  var editions = edition ? editionFormatter(edition) : null;
 
   alert.classList.add("invisible");
   sourcesDiv.classList.remove("invisible");
@@ -221,17 +241,93 @@ function monoGenerate() {
     editionEn = `${editions[1]} ed.,`;
   }
 
-  city = city ? `${city},` : "s.l.,";
-  year = year ? `${year},` : "s.d.,";
-  pages = pages ? `${pages} p.` : "";
-  collection = collection ? `, coll. ${collection}.` : "";
+  city = city ? `${city}` : "s.l.";
+
+  year = year ? `${year}` : "s.d.";
+  pages = pages ? `, ${pages} p.` : "";
+  collection = collection ? `, (coll. ${collection}).` : "";
+
+  var ending = "";
+  if (!pages && !collection) {
+    if (year === "s.d.") {
+      ending = `${year}`;
+    } else {
+      ending = `${year}.`
+    }
+  } else {
+    ending = `${year}${pages}${collection}`
+  }
 
   if (!url) {
-    fr.innerHTML = `${authorSrcFr} <i>${title}</i>, ${editionFr} ${city} ${editor}, ${year} ${pages} ${collection}`;
-    en.innerHTML = `${authorSrcEn} <i>${title}</i>, ${editionEn} ${city} ${editor}, ${year} ${pages} ${collection}`;
+    fr.innerHTML = `${authorSrcFr} <i>${title}</i>, ${editionFr} ${city}, ${editor}, ${ending}`;
+    en.innerHTML = `${authorSrcEn} <i>${title}</i>, ${editionEn} ${city}, ${editor}, ${ending}`;
   } else {
-    fr.innerHTML = `${authorSrcFr} <i>${title}</i>, ${editionFr} S.D., ${editor}, ${year} [Disponible en ligne à l'addresse : ${url}]`;
-    en.innerHTML = `${authorSrcEn} <i>${title}</i>, ${editionEn} S.D., ${editor}, ${year} [Available online at the address: ${url}]`;
+    fr.innerHTML = `${authorSrcFr} <i>${title}</i>, ${editionFr} S.D., ${editor}, ${year}, [Disponible en ligne à l'addresse : ${url}]`;
+    en.innerHTML = `${authorSrcEn} <i>${title}</i>, ${editionEn} S.D., ${editor}, ${year}, [Available online at the address: ${url}]`;
+  }
+
+}
+
+function periodicGenerate() {
+  var title = document.querySelector('[name="periodic-title"]').value.trim();
+
+  var lname = document.querySelector('[name="periodic-lname"]').value.trim();
+  var fname = document.querySelector('[name="periodic-fname"]').value.trim();
+  var lname2 = document.querySelector('[name="periodic-lname2"]').value.trim();
+  var fname2 = document.querySelector('[name="periodic-fname2"]').value.trim();
+  var authors3 = document.querySelector('[name="periodic-3authors"]').checked;
+
+  var name = document.querySelector('[name="periodic-name"]').value.trim();
+
+  var vol = document.querySelector('[name="periodic-vol"]').value.trim();
+  var num = document.querySelector('[name="periodic-num"]').value.trim();
+  var pubdate = document.querySelector('[name="periodic-pubdate"]').value.trim();
+
+  var fromPage = document.querySelector('[name="periodic-frompage"]').value.trim();
+  var toPage = document.querySelector('[name="periodic-topage"]').value.trim();
+  var url = document.querySelector('[name="periodic-url"]').value.trim();
+
+  const fr = document.getElementById("periodic-source-fr");
+  const en = document.getElementById("periodic-source-en");
+  const sourcesDiv = document.getElementById("periodic-sources");
+  const alert = document.getElementById("periodic-alert");
+
+  var authors = authorsFormatter(lname, fname, lname2, fname2, authors3, alert);
+  if (!title || !name || authors === undefined || !pubdate) {
+    alert.classList.remove("invisible");
+    sourcesDiv.classList.add("invisible");
+    return;
+  }
+
+  var dates = dateFormatter(pubdate, alert);
+
+  var dateFr = dates[0];
+  var dateEn = dates[1];
+  var year = dateFr.split(' ').pop();
+
+  var authorSrcFr = authors[0];
+  var authorSrcEn = authors[1];
+
+  alert.classList.add("invisible");
+  sourcesDiv.classList.remove("invisible");
+
+  vol = vol ? `vol. ${vol},` : "S.V.,";
+  num = num ? `n&deg; ${num}` : "S.N.";
+
+  var ending = "";
+
+  if (fromPage == toPage) {
+    ending += `p.${fromPage}.`;
+  } else {
+    ending += `p.${fromPage}-${toPage}.`;
+  }
+
+  if (!url) {
+    fr.innerHTML = `${authorSrcFr} « ${title} », <i>${name}</i>, ${vol} ${num} ${dateFr}, ${ending}`;
+    en.innerHTML = `${authorSrcEn} « ${title} », <i>${name}</i>, ${vol} ${num} ${dateEn}, ${ending}`;
+  } else {
+    fr.innerHTML = `${authorSrcFr} « ${title} », <i>${name}</i>, S.V., S.D., S.E., ${year}, [Disponible en ligne à l'addresse : ${url}]`;
+    en.innerHTML = `${authorSrcEn} « ${title} », <i>${name}</i>, S.V., s.D., S.E., ${year}, [Available online at the address: ${url}]`;
   }
 
 }
